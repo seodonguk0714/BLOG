@@ -10,7 +10,7 @@
 		<id column="authorities" property="authorities"/>
 	
 	</resultMap>
-	
+	<!--로그인 확인 쿼리  -->
 	<select id="login" resultMap="userMap">
 		SELECT	user_id,
 				user_pw,
@@ -20,4 +20,5 @@
 		FROM	users
 		WHERE	user_id = #{userId}
 	</select>
+	
 </mapper>

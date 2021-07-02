@@ -46,6 +46,7 @@
          <mvc:interceptor>
          	<mvc:mapping path="/**" /> 
          	<mvc:exclude-mapping path="/access_denied_page.do"/>
+         	<mvc:exclude-mapping path="/login.do"/>
             <bean class="co.kr.security.config.Interceptor" />
          </mvc:interceptor>
 	</mvc:interceptors>

@@ -10,7 +10,7 @@ public class Interceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		System.out.println("123");
+		System.out.println(request.getServletPath());
 		return super.preHandle(request, response, handler);
 	}
 
