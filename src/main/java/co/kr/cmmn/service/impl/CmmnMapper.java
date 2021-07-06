@@ -6,5 +6,4 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
 @Mapper("cmmnMapper")
 public interface CmmnMapper {
 	
-	public UserVO login(String userId);
 }

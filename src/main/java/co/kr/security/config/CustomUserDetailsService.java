@@ -10,20 +10,18 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import co.kr.cmmn.service.impl.CmmnMapper;
 import co.kr.security.UserVO;
+import co.kr.security.service.SecurityService;
 
 public class CustomUserDetailsService implements UserDetailsService{
 	
-	@Resource(name="cmmnMapper")
-	private CmmnMapper mapper;
-	@Autowired
-	public ShaPasswordEncoder encode;
+	@Resource(name="securityService")
+	private SecurityService securityService;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		String userId = username;
-		System.out.println(encode.encodePassword("user", "user"));
-		UserVO vo= mapper.login(userId);
+		UserVO vo= securityService.login(userId);
 		if(vo == null) {
 			throw new UsernameNotFoundException(username);
 		}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.kr.security.service.impl.SecurityMapper">
+	<resultMap type="userVO" id="userMap" >
+		<id column="user_id" property="userId"/>
+		<id column="user_pw" property="userPassword"/>
+		<id column="user_name" property="userName"/>
+		<id column="enabled" property="enabled"/>
+		<id column="authorities" property="authorities"/>
+	</resultMap>
+	
+	<select id="login" resultMap="userMap" >
+		SELECT	user_id,
+				user_pw,
+				user_name,
+				authorities,
+				enabled
+		FROM	users
+		WHERE	user_id = #{userId}
+	</select>
+	
+	<select id="urlCheck" resultType="int">
+		SELECT	count(*)
+		FROM	menu
+		WHERE	authorities = #{auth}
+		AND		menu_url = #{url}
+	</select>
+</mapper>

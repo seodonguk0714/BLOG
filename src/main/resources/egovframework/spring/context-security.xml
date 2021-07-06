@@ -14,6 +14,7 @@
 		    	username-parameter="userId"
 		    	password-parameter="userPassword"
 				default-target-url="/mainPage.do"
+				authentication-success-handler-ref="loginSuccessHandler"
 		    	
 		    />
 		    <security:logout
@@ -35,5 +36,9 @@
 	<bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
 			<constructor-arg value="512"/>
 	</bean>
-
+	
+   	<bean id="loginSuccessHandler" class="co.kr.security.config.LoginSuccessHandler">
+<!--    		<property name="loginidname" value="loginId"/> -->
+<!--    		<property name="defaultUrl" value="/login.do"/> -->
+   	</bean>
 </beans>
